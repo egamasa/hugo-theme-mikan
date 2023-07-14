@@ -1,0 +1,12 @@
+name = "Mikan"
+license = "MIT"
+licenselink = "https://github.com/egamasa/hugo-theme-mikan/blob/master/LICENSE"
+description = ""
+homepage = "http://orangeliner.net/"
+tags = ["blog"]
+features = []
+min_version = "0.115.3"
+
+[author]
+  name = "egamasa"
+  homepage = "http://orangeliner.net/"
