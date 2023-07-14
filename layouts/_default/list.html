@@ -1,0 +1,39 @@
+{{ define "main" }}
+  {{- $title := .Title -}}
+  {{- $pages := .Pages -}}
+  {{- $summary := false -}}
+  {{- if .IsHome -}}
+    {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
+    {{- $summary = true -}}
+  {{- end -}}
+
+  {{- if not .IsHome -}}
+    <h1>{{ $title }}</h1>
+  {{- end -}}
+
+  {{ range $pages }}
+  <article>
+    <h2>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+
+    {{- if not .Date.IsZero }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datepublished">
+        {{- .Date.Format (default "2006/01/02" site.Params.DateFormat) -}}
+      </time>
+    {{- end }}
+    {{- if gt .Lastmod .Date }}
+      <time datetime="{{ .Lastmod.Format "2006-01-02" }}" itemprop="modified">
+        {{- .Lastmod.Format (default "2006/01/02" site.Params.DateFormat) -}}
+      </time>
+    {{- end }}
+
+    {{ .Summary }}
+    {{ if .Truncated }}
+    <div>
+      <a href="{{ .Permalink }}">Read more</a>
+    </div>
+    {{ end }}
+  </article>
+  {{ end }}
+{{ end }}
