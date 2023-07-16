@@ -15,13 +15,29 @@
     {{ partial "head" . }}
   </head>
   <body>
-    <header>
-      {{ partial "header" . }}
-    </header>
-    <main>
-      {{- block "main" . }}
-      {{- end }}
-    </main>
+    <navbar>
+      <div class="container is-max-widescreen">
+        {{ partial "navbar" . }}
+      </div>
+    </navbar>
+    <section class="container">
+      <div class="columns is-multiline">
+        <main class="column is-full-tablet is-two-thirds-desktop">
+          {{- block "main" . }}
+          {{- end }}
+        </main>
+        <aside class="column">
+          <div class="columns is-multiline">
+            <div class="column is-full-mobile is-half-tablet is-full-desktop">
+              sidebar-primary
+            </div>
+            <div class="column is-full-mobile is-half-tablet is-full-desktop">
+              sidebar-secondary
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
     <footer>
       {{ partial "footer" . }}
     </footer>
