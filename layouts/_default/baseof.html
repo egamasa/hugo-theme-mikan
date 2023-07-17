@@ -28,12 +28,8 @@
         </main>
         <aside class="column">
           <div class="columns is-multiline">
-            <div class="column is-full-mobile is-half-tablet is-full-desktop">
-              sidebar-primary
-            </div>
-            <div class="column is-full-mobile is-half-tablet is-full-desktop">
-              sidebar-secondary
-            </div>
+            {{- partial "sidebar-primary" . -}}
+            {{- partial "sidebar-secondary" . -}}
           </div>
         </aside>
       </div>
