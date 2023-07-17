@@ -11,3 +11,62 @@ body {
 ul > li {
   list-style-type: disc;
 }
+
+.side-box {
+  font-size: .9em;
+  display: flex;
+  position: relative;
+
+  img {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+  }
+}
+
+.author {
+  min-height: 185px;
+
+  p {
+    margin: 10px 0;
+  }
+
+  .link-icons {
+    top: 95px;
+    width: 80px;
+    margin: 0 10px 10px 10px;
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+
+    .link-icon {
+      width: 36px;
+      height: 36px;
+      margin: auto;
+      margin-bottom: 4px;
+
+      a {
+        width: 100%;
+        height: 100%;
+        font-size: 42px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.fa-square-facebook {
+  color: #1877f2;
+}
+.fa-square-github {
+  color: #0e0c0d;
+}
+.fa-square-instagram {
+  color: #cf2e92;
+}
+.fa-square-twitter {
+  color: #1da1f2;
+}
+.fa-square-youtube {
+  color: #da1725;
+}

@@ -29,6 +29,8 @@
         <aside class="column">
           <div class="columns is-multiline">
             {{- partial "sidebar-primary" . -}}
+            {{- block "sidebar-primary" . }}
+            {{- end }}
             {{- partial "sidebar-secondary" . -}}
           </div>
         </aside>

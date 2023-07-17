@@ -1,3 +1,31 @@
-<div class="column is-full-mobile is-half-tablet is-full-desktop">
-  sidebar-primary
-</div>
+{{ define "sidebar-primary" }}
+  <div class="column is-full-mobile is-half-tablet is-full-desktop">
+    <!-- Author Profile -->
+    <section class="side-box author">
+      {{- $iconSrc := resources.Get .Site.Params.author.icon }}
+      {{- $iconImgRes := $iconSrc.Fill "80x80" }}
+      {{- $iconImgUrl := $iconImgRes.RelPermalink }}
+      <img src="{{ $iconImgUrl }}" alt="icon">
+      <p class="description">
+        <strong>{{ .Site.Params.author.name }}</strong>
+        <br>
+        {{ .Site.Params.author.description }}
+      </p>
+
+      <div class="link-icons">
+        <div class="link-icon">
+          <a href="#" class="fa-square-twitter" target="_blank"></a>
+        </div>
+        <div class="link-icon">
+          <a href="#" class="fa-square-instagram" target="_blank"></a>
+        </div>
+        <div class="link-icon">
+          <a href="#" class="fa-square-github" target="_blank"></a>
+        </div>
+        <div class="link-icon">
+          <a href="#" class="fa-square-youtube" target="_blank"></a>
+        </div>
+      </div>
+    </section>
+  </div>
+{{ end }}
