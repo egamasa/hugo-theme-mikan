@@ -6,6 +6,7 @@
 {{ end }}
 
 <link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/icomoon.css">
 
 {{ $options := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
 {{ with resources.Get "sass/main.scss" | toCSS $options | minify | fingerprint }}
