@@ -2,6 +2,7 @@
 
 $color-background: #f5f6f6;
 $color-text: #333333;
+$color-text-metadata: #666666;
 
 body {
   background-color: $color-background;
@@ -10,6 +11,13 @@ body {
 
 ul > li {
   list-style-type: disc;
+}
+
+.sidebar {
+  h2 {
+    margin: 16px 0 0 0;
+    border-bottom: none;
+  }
 }
 
 .side-box {
@@ -21,15 +29,16 @@ ul > li {
     width: 80px;
     height: 80px;
     margin: 10px;
+    background-color: $color-background;
+  }
+
+  p {
+    margin: 10px 0;
   }
 }
 
 .author {
   min-height: 185px;
-
-  p {
-    margin: 10px 0;
-  }
 
   .link-icons {
     top: 95px;
@@ -69,4 +78,37 @@ ul > li {
 }
 .fa-square-youtube {
   color: #da1725;
+}
+
+.recent {
+  .side-box {
+    height: 100px;
+    margin: 0 0 5px;
+    border: 1px solid;
+
+    p {
+      width: 100%;
+      height: 40px;
+      line-height: 1.3;
+      padding-left: 100px;
+      padding-right: 10px;
+      overflow: hidden;
+    }
+
+    .article-metadata {
+      top: 50px;
+      margin: 0;
+      position: absolute;
+      color: $color-text-metadata;
+    }
+
+    a {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      text-decoration: none;
+    }
+  }
 }

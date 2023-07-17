@@ -1,0 +1,7 @@
+[params]
+dafaultNoimage = "svg/no_image.svg"
+
+  [params.author]
+    name = "author name"
+    description = "author's description."
+    icon = "image/author_icon.jpg"

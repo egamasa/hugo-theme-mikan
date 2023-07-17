@@ -6,7 +6,7 @@
       {{- $iconImgRes := $iconSrc.Fill "80x80" }}
       {{- $iconImgUrl := $iconImgRes.RelPermalink }}
       <img src="{{ $iconImgUrl }}" alt="icon">
-      <p class="description">
+      <p>
         <strong>{{ .Site.Params.author.name }}</strong>
         <br>
         {{ .Site.Params.author.description }}
@@ -26,6 +26,43 @@
           <a href="#" class="fa-square-youtube" target="_blank"></a>
         </div>
       </div>
+    </section>
+
+    <h2>
+      <span class="fa-newspaper">
+        &nbsp;Recent articles
+      </span>
+    </h2>
+    <section class="recent">
+      {{- $noImageSrc := resources.Get .Site.Params.dafaultNoimage }}
+
+      {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+        <div class="side-box">
+          <!-- TODO: 記事毎アイキャッチ画像の取得・表示 -->
+          <img src="{{ $noImageSrc.RelPermalink }}">
+          <a href="{{.RelPermalink}}">
+            <p>
+              <b>{{ .Title }}</b>
+            </p>
+            <p class="article-metadata">
+              {{- if .Params.Categories }}
+              <span class="fa-folder">
+                {{ range $categoryName := .Params.Categories }}
+                &nbsp;{{ $categoryName }}
+              </span>
+              {{ end }}
+              <br>
+              {{- end }}
+              <span class="fa-calendar-days">
+                &nbsp;
+                <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datepublished">
+                  {{- .Date.Format (default "2006/01/02" site.Params.DateFormat) -}}
+                </time>
+              </span>
+            </p>
+          </a>
+        </div>
+      {{ end }}
     </section>
   </div>
 {{ end }}
