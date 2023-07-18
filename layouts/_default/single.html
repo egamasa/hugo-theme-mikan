@@ -10,25 +10,32 @@
     </div>
   {{- end }}
 
-  {{- if not .Date.IsZero }}
-    <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datepublished">
-      {{- .Date.Format (default "2006/01/02" site.Params.DateFormat) -}}
-    </time>
-  {{- end }}
-  {{- if gt .Lastmod .Date }}
-    <time datetime="{{ .Lastmod.Format "2006-01-02" }}" itemprop="modified">
-      {{- .Lastmod.Format (default "2006/01/02" site.Params.DateFormat) -}}
-    </time>
-  {{- end }}
+  <div class="article-metadata">
+    {{- if not .Date.IsZero }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datepublished">
+        {{- .Date.Format (default "2006/01/02" site.Params.DateFormat) -}}
+      </time>
+    {{- end }}
+    {{- if gt .Lastmod .Date }}
+      <time datetime="{{ .Lastmod.Format "2006-01-02" }}" itemprop="modified">
+        {{- .Lastmod.Format (default "2006/01/02" site.Params.DateFormat) -}}
+      </time>
+    {{- end }}
 
-  {{- if .Params.tags }}
-    <div>
-      Tags:
-      {{- range ($.GetTerms "tags") }}
-        <a href="{{ .Permalink | relURL }}">{{ .LinkTitle }}</a>
-      {{- end }}
-    </div>
-  {{- end }}
+    {{- if .Params.tags }}
+      <div class="tag-cloud">
+        <ul>
+          {{- range ($.GetTerms "tags") }}
+            <li>
+              <a href="{{ .Permalink | relURL }}" class="fa-bookmark">
+                &nbsp;{{ .LinkTitle }}
+              </a>
+            </li>
+          {{- end }}
+        </ul>
+      </div>
+    {{- end }}
+  </div>
 
   {{ .Content }}
 {{- end }}
