@@ -1,3 +1,18 @@
-<div class="column is-full-mobile is-half-tablet is-full-desktop">
-  sidebar-secondary
-</div>
+{{ define "sidebar-secondary" }}
+  <div class="column is-full-mobile is-half-tablet is-full-desktop">
+    <h2>
+      <span class="fa-bookmark">
+        &nbsp;Tags
+      </span>
+    </h2>
+    <section class="side-box tag-cloud">
+      {{ if lt 0 (len .Site.Taxonomies.tags) }}
+        <ul>
+          {{ range .Site.Taxonomies.tags.ByCount }}
+            <li><a href="{{ $.Site.BaseURL | relURL }}tags/{{ .Name | urlize }}">{{ .Name }}<span class="count">{{ .Count }}</span></a></li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </section>
+  </div>
+{{ end }}

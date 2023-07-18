@@ -9,7 +9,7 @@ body {
   color: $color-text;
 }
 
-ul > li {
+.main ul > li {
   list-style-type: disc;
 }
 
@@ -111,4 +111,41 @@ ul > li {
       text-decoration: none;
     }
   }
+}
+
+.tag-cloud {
+  line-height: 2em;
+  display: flex;
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  ul > li {
+    display: inline-block;
+
+    a {
+      padding: .2em;
+      padding-right: 1.5em;
+      color: $color-text-metadata;
+      border: 1px solid;
+      border-color: $color-text-metadata;
+      position: relative;
+      text-decoration: none;
+    }
+  }
+}
+
+span.count {
+  position: absolute;
+  top: 0.3em;
+  right: 0.2em;
+  width: 1.2em;
+  height: 1.2em;
+  line-height: 1.2em;
+  background-color: #ff6633;
+  border-radius: 100%;
+  color: white;
+  text-align: center;
 }
