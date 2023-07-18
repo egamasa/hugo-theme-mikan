@@ -13,12 +13,16 @@
   <div class="article-metadata">
     {{- if not .Date.IsZero }}
       <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datepublished">
-        {{- .Date.Format (default "2006/01/02" site.Params.DateFormat) -}}
+        <span class="fa-calendar-days">
+          &nbsp;{{- .Date.Format (default "2006/01/02" site.Params.DateFormat) -}}
+        </span>
       </time>
     {{- end }}
     {{- if gt .Lastmod .Date }}
       <time datetime="{{ .Lastmod.Format "2006-01-02" }}" itemprop="modified">
-        {{- .Lastmod.Format (default "2006/01/02" site.Params.DateFormat) -}}
+        <span class="fa-arrow-rotate-right">
+          &nbsp;{{- .Lastmod.Format (default "2006/01/02" site.Params.DateFormat) -}}
+        </span>
       </time>
     {{- end }}
 
