@@ -32,7 +32,13 @@
           {{- range ($.GetTerms "tags") }}
             <li>
               <a href="{{ .Permalink | relURL }}" class="fa-bookmark">
-                &nbsp;{{ .LinkTitle }}
+                &nbsp;
+                {{ $tagMap := where .Site.Data.tag_mapping "code" .LinkTitle }}
+                {{- if $tagMap }}
+                  {{ (index $tagMap 0).disp }}
+                {{ else }}
+                  {{ .LinkTitle }}
+                {{ end }}
               </a>
             </li>
           {{- end }}

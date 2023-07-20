@@ -1,0 +1,7 @@
+# Tags code <=> display mapping
+- code: golang
+  disp: Golang
+- code: ruby
+  disp: Ruby
+- code: aws
+  disp: AWS

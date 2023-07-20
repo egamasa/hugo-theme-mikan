@@ -9,7 +9,17 @@
       {{ if lt 0 (len .Site.Taxonomies.tags) }}
         <ul>
           {{ range .Site.Taxonomies.tags.ByCount }}
-            <li><a href="{{ $.Site.BaseURL | relURL }}tags/{{ .Name | urlize }}">{{ .Name }}<span class="count">{{ .Count }}</span></a></li>
+            <li>
+              <a href="{{ $.Site.BaseURL | relURL }}tags/{{ .Name | urlize }}">
+                {{ $tagMap := where $.Site.Data.tag_mapping "code" .Name }}
+                {{- if $tagMap }}
+                  {{ (index $tagMap 0).disp }}
+                {{ else }}
+                  {{ .Name }}
+                {{ end }}
+                <span class="count">{{ .Count }}</span>
+              </a>
+            </li>
           {{ end }}
         </ul>
       {{ end }}
